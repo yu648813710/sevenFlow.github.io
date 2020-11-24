@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="从0搭建一个react工程项目从零搭建项目都需要搭建什么 按照之前使用最全的vue-cli脚手架来对比   热加载 ECMAscript 6 的处理 模式 压缩打包 懒加载 css的预处理 eslint的语法检测  初始化项目 使用的包管理工具是 yarn  yarn init 新建目录后 执行 yarn init，执行后 会让你写入项目信息，写入后会目录下会多一个 packge.json文件 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://yu648813710.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="从0搭建一个react工程项目从零搭建项目都需要搭建什么 按照之前使用最全的vue-cli脚手架来对比   热加载 ECMAscript 6 的处理 模式 压缩打包 懒加载 css的预处理 eslint的语法检测  初始化项目 使用的包管理工具是 yarn  yarn init 新建目录后 执行 yarn init，执行后 会让你写入项目信息，写入后会目录下会多一个 packge.json文件 1">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-11-24T15:17:21.832Z">
+<meta property="article:modified_time" content="2020-11-24T15:17:21.832Z">
+<meta property="article:author" content="sevenFlow">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/sevenFlow.github.io/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/sevenFlow.github.io/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sevenFlow.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yu648813710.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-从0搭建一个react工程项目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.832Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="从0搭建一个react工程项目"><a href="#从0搭建一个react工程项目" class="headerlink" title="从0搭建一个react工程项目"></a>从0搭建一个react工程项目</h1><h3 id="从零搭建项目都需要搭建什么"><a href="#从零搭建项目都需要搭建什么" class="headerlink" title="从零搭建项目都需要搭建什么"></a>从零搭建项目都需要搭建什么</h3><blockquote>
+<p>按照之前使用最全的vue-cli脚手架来对比</p>
+</blockquote>
+<ul>
+<li>热加载</li>
+<li>ECMAscript 6 的处理</li>
+<li>模式</li>
+<li>压缩打包</li>
+<li>懒加载</li>
+<li>css的预处理</li>
+<li>eslint的语法检测</li>
+</ul>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><blockquote>
+<p>使用的包管理工具是 <code>yarn</code></p>
+</blockquote>
+<h3 id="yarn-init"><a href="#yarn-init" class="headerlink" title="yarn init"></a>yarn init</h3><ul>
+<li><p>新建目录后 执行 yarn init，执行后 会让你写入项目信息，写入后会目录下会多一个 <code>packge.json</code>文件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;webpack-react&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;从零搭建&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Yuwentao&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;MIT&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;private&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="安装webapck以及webpack-cli"><a href="#安装webapck以及webpack-cli" class="headerlink" title="安装webapck以及webpack-cli"></a>安装<code>webapck</code>以及<code>webpack-cli</code></h3><ul>
+<li>运行 <code>yarn add webpack -D</code></li>
+<li>运行 <code>yarn add webpack-cli -D</code></li>
+</ul>
+<h3 id="增加命令行任务"><a href="#增加命令行任务" class="headerlink" title="增加命令行任务"></a>增加命令行任务</h3><ul>
+<li><p>在 <code>package.json</code>文件中的 <code>script</code>选项写上 配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;webpack&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="配置入口以及出口文件"><a href="#配置入口以及出口文件" class="headerlink" title="配置入口以及出口文件"></a>配置入口以及出口文件</h3><ul>
+<li>这块要用到 <code>webapck</code> 的知识 <a href="%5Bhttps://www.webpackjs.com/concepts/#%E5%85%A5%E5%8F%A3-entry-%5D(https://www.webpackjs.com/concepts/#%E5%85%A5%E5%8F%A3-entry-)">entry</a> 入口以及 <a href="%5Bhttps://www.webpackjs.com/concepts/#%E5%87%BA%E5%8F%A3-output-%5D(https://www.webpackjs.com/concepts/#%E5%87%BA%E5%8F%A3-output-)">output</a> 出口</li>
+</ul>
+<p>上一步之所以能 build 成功 就是因为，webpack4的默认 entery 是 <code>src/index.js</code>而默认output出口是<code>dist/main.js</code>，要进行修改就必须新建 webpack.config.js ，在这个js文件里修改</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// node js 模块提供用于处理文件路径和目录路径的实用工具</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="comment">// 入口</span></span><br><span class="line">    entry: <span class="string">&#x27;./src/one.js&#x27;</span>,</span><br><span class="line">    <span class="comment">// 出口配置</span></span><br><span class="line">    output: &#123;</span><br><span class="line">      <span class="comment">// 输出路径</span></span><br><span class="line">      path: path.resolve(__dirname, <span class="string">&quot;dist&quot;</span>),</span><br><span class="line">      <span class="comment">// 输出文件名称</span></span><br><span class="line">      filename: <span class="string">&#x27;index.js&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="不同模式-mode-怎么配置"><a href="#不同模式-mode-怎么配置" class="headerlink" title="不同模式 mode 怎么配置"></a>不同模式 mode 怎么配置</h3><ul>
+<li>通过设置 mode 可以加载不同的 webpack 配置</li>
+</ul>
+<p>模式分为 production  以及 development ,produciton 模式对打包进行了默认优化，可以直接 写在配置文件，也可直接执行命令 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="comment">// 模式</span></span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">webpack --mode=production</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决热加载问题"><a href="#解决热加载问题" class="headerlink" title="解决热加载问题"></a>解决热加载问题</h2><ul>
+<li><p>需要安装 webpack-dev-server 插件 进行配置 </p>
+<p>webpack.config.js文件的配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server --open&quot;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成后，就可以进行热加载启动，可以设置端口号 ,设置启动的路径以及文件名称，以及是否显示打印台的log信息，以及进度显示 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 热加载设置</span></span><br><span class="line">devServer: &#123;</span><br><span class="line">  <span class="comment">// 端口号</span></span><br><span class="line">  port: <span class="number">1111</span>,</span><br><span class="line">  <span class="comment">// 被作为索引的文件名称</span></span><br><span class="line">  index: <span class="string">&#x27;index.html&#x27;</span>,</span><br><span class="line">  <span class="comment">// 告诉 dev-server 在 server 启动后打开浏览器。默认禁用。</span></span><br><span class="line">  open: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 告诉服务器从哪个目录中提供内容。只有在你想要提供静态文件时才需要</span></span><br><span class="line">  contentBase: path.join(__dirname, <span class="string">&#x27;public&#x27;</span>),</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">// 不显示打印台的log以及进度显示 只能命令行配置 </span></span><br><span class="line">  webpack-dev-server --info=<span class="literal">false</span> --progress</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在的热加载是有问题的，每次更新js都会导致页面重新加载，可以用 webpack 的热模块加载来实现，页面无加载</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 webpack</span></span><br><span class="line"><span class="comment">// 本身webpack 的模块</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 devServer 设置里加上</span></span><br><span class="line"><span class="comment">// 热加载设置</span></span><br><span class="line">devServer: &#123;</span><br><span class="line">  <span class="comment">// 模块热加载</span></span><br><span class="line">  hot: <span class="literal">true</span>,</span><br><span class="line">&#125;,</span><br><span class="line"> <span class="comment">// 插件设置</span></span><br><span class="line"> plugins: [</span><br><span class="line">  <span class="comment">// 热模块替换，如果只用热加载的话，每次文件有修改，页面都会重建加载</span></span><br><span class="line">  <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在入口文件加上 热模块启动的执行</p>
+<p>当 devserver 启动时，出口文件不会打包在 硬盘中，而是存在 内存中，所以 设置的 启动 页面 应该引入 内存中的 打包后的文件 也就是 index.js</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>引入的入口 js 文件，写入热模块判断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">module</span>.hot) &#123;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">module</span>.hot.accept();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="解决es6的解析问题"><a href="#解决es6的解析问题" class="headerlink" title="解决es6的解析问题"></a>解决es6的解析问题</h2><ul>
+<li><p>先安装 babel 的包</p>
+<p><code>yarn add @babel/core @babel/preset-env babel-loader -D</code></p>
+</li>
+<li><p>配置<code>webpack.config.js</code>里的模块规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这些选项决定了如何处理项目中的不同类型的模块</span></span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  <span class="comment">// 处理模块的规则</span></span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: <span class="string">&quot;babel-loader&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在根目录新建 <code>.babellrc</code>文件，写入配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;presets&quot;</span>: [<span class="string">&quot;@babel/preset-env&quot;</span>],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="设置不同模式的启动"><a href="#设置不同模式的启动" class="headerlink" title="设置不同模式的启动"></a>设置不同模式的启动</h2><blockquote>
+<p>按照 vue-cli 来搭建模式启动的，vue-cli可以通过 启动命令 设置不同 mode 来决定读取哪些 环境文件。</p>
+</blockquote>
+<ul>
+<li><p>怎么通过 不同命令处理来标识 不同的 <code>env</code></p>
+<p>命令行</p>
+<p><code>&quot;start:prd&quot;: &quot;webpack-dev-server --info=false --progress --env=prd&quot;</code></p>
+<p>配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env, argv</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(env) <span class="comment">// prd</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在的命令可以启动不同的标识了 <code>env</code>，然后可以用不同的 <code>env</code>来标识不同的配置</p>
+</li>
+<li><p>怎么通过<code>env</code>来标识不同的配置</p>
+</li>
+</ul>
+<p>  拿到<code>env</code>后，就可以用它判断是什么命令启动，然后加载不同 webpack配置文件就行了</p>
+<p>  先有基础的webpack配置文件 <code>webpack.config.js</code>，然后新建一个 <code>webpack.dev.config.js</code>文件，写入在 dev 模式运行需要加入什么配置</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dev 模式下的</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env, argv</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="comment">// 模式</span></span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// 插件设置</span></span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="comment">// 允许创建一个在编译时可以配置的全局常量</span></span><br><span class="line">      <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">        <span class="string">&#x27;process.env&#x27;</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;APP_IS&#x27;</span>: <span class="string">&#x27;false&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  借助 ``</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/" data-id="ckhw4m2pq0006b7vvcyuf56dd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/sevenFlow.github.io/2020/11/24/wsl%E7%B3%BB%E7%BB%9F%E4%BF%AE%E6%94%B9bash%E6%98%BE%E7%A4%BAgit%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 sevenFlow<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/sevenFlow.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/sevenFlow.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/fancybox/jquery.fancybox.css">
+
+  
+<script src="/sevenFlow.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/sevenFlow.github.io/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

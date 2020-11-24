@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前端工程化的理解 什么是前端工程化? 前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化。  前端工程化的目的: 为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间  前端工程化的重点: 利用分治思想化整为0，便于管理迭代，运维  前端工程化的主要包含什么: 模块化 组件化 规范化 自动化  模块化 简单来说，模块化就是将一个大文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://yu648813710.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前端工程化的理解 什么是前端工程化? 前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化。  前端工程化的目的: 为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间  前端工程化的重点: 利用分治思想化整为0，便于管理迭代，运维  前端工程化的主要包含什么: 模块化 组件化 规范化 自动化  模块化 简单来说，模块化就是将一个大文件">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-11-24T15:17:21.834Z">
+<meta property="article:modified_time" content="2020-11-24T15:17:21.834Z">
+<meta property="article:author" content="sevenFlow">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/sevenFlow.github.io/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/sevenFlow.github.io/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sevenFlow.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yu648813710.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-前端工程化的理解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.834Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前端工程化的理解"><a href="#前端工程化的理解" class="headerlink" title="前端工程化的理解"></a>前端工程化的理解</h2><hr>
+<h3 id="什么是前端工程化"><a href="#什么是前端工程化" class="headerlink" title="什么是前端工程化?"></a>什么是前端工程化?</h3><blockquote>
+<p>前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化。</p>
+</blockquote>
+<h3 id="前端工程化的目的"><a href="#前端工程化的目的" class="headerlink" title="前端工程化的目的:"></a>前端工程化的目的:</h3><blockquote>
+<p>为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间</p>
+</blockquote>
+<h3 id="前端工程化的重点"><a href="#前端工程化的重点" class="headerlink" title="前端工程化的重点:"></a>前端工程化的重点:</h3><blockquote>
+<p>利用分治思想化整为0，便于管理迭代，运维</p>
+</blockquote>
+<h3 id="前端工程化的主要包含什么"><a href="#前端工程化的主要包含什么" class="headerlink" title="前端工程化的主要包含什么:"></a>前端工程化的主要包含什么:</h3><ul>
+<li>模块化</li>
+<li>组件化</li>
+<li>规范化</li>
+<li>自动化</li>
+</ul>
+<h5 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h5><blockquote>
+<p>简单来说，模块化就是将一个大文件拆分成相互依赖的小文件，再进行统一的拼装和加载。</p>
+</blockquote>
+<ul>
+<li><p>JS 模块化</p>
+<ul>
+<li>commonJS <blockquote>
+<p>是同步加载JS的，会造成堵塞，不适合浏览器，更多是服务器在用</p>
+</blockquote>
+</li>
+<li>AMD规范<blockquote>
+<p>require.js 遵从的规范，依赖前置 ,可以异步加载js</p>
+</blockquote>
+</li>
+<li>CMD规范<blockquote>
+<p>sea.js 遵从的规范，什么时候使用 什么时候加载依赖，可以异步加载js</p>
+</blockquote>
+</li>
+<li>ES6的 modul<blockquote>
+<p>更为简洁，而且可以静态加载，动态引用（js引擎对脚本静态分析的时候，遇到模块加载命令import，就会生成一个只读引用）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>css 模块化 </p>
+<blockquote>
+<p>虽然SASS、LESS、Stylus等预处理器实现了CSS的文件拆分，但没有解决CSS模块化的一个重要问题：选择器的全局污染问题。</p>
+</blockquote>
+<ul>
+<li><p> VUE的scoped style 也算是一种解决css模块化的方式</p>
+</li>
+<li><p>CSS Modules仍然使用CSS，只是让JS来管理依赖。它能够最大化地结合CSS生态和JS模块化能力，目前来看是最好的解决方案。</p>
+</li>
+<li><p>为了避免全局选择器的冲突，需要制定CSS命名风格：</p>
+<ul>
+<li>BEM风格</li>
+<li>Bootstrap风格</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>资源的模块化（img,或者字体文件等等）</p>
+<blockquote>
+<p>资源包括 img 以及库的使用，以及字体文件这些，这些都可以通过webpack模块机制加载，所以重点在于webpack</p>
+</blockquote>
+<ul>
+<li>优点<ul>
+<li>依赖关系单一化：所有CSS和图片等资源的依赖关系统一走JS路线，无需额外处理CSS预处理器的依赖关系，也不需处理代码迁移时的图片合并、字体图片等路径问题； </li>
+<li>资源处理集成化：现在可以用loader对各种资源做各种事情，比如复杂的vue-loader等等；</li>
+<li>项目结构清晰化：使用Webpack后，你的项目结构总可以表示成这样的函数： dest = webpack(src, config)。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h5><blockquote>
+<p>从UI拆分下来的每个包含模板(HTML)+样式(CSS)+逻辑(JS)功能完备的结构单元，我们称之为组件。</p>
+</blockquote>
+<blockquote>
+<p>组件化≠模块化。模块化只是在文件层面上，对代码或资源的拆分；而组件化是在设计层面上，对UI（用户界面）的拆分。</p>
+</blockquote>
+<p> 常用的组件化框架主要的有 <code>Vue、React、Angular</code>，还有小程序。</p>
+<p> 自己构建组件化项目，需要处理引入方式使用webpack，所以选用框架是最好的方法。</p>
+<ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011774228">不用框架的情况下如何组件化</a></li>
+</ul>
+<h5 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h5><blockquote>
+<p>规范化其实是工程化中很重要的一个部分，项目初期规范制定的好坏会直接影响到后期的开发质量。</p>
+</blockquote>
+<ul>
+<li><p>目录结构的制定</p>
+<p>  优点：</p>
+<ol>
+<li>有助于提高项目的逻辑结构合理性</li>
+<li>对应扩展和合作</li>
+<li>方便资源的统一定位管理</li>
+</ol>
+</li>
+<li><p>编码规范包括</p>
+<ul>
+<li>HTML规范<blockquote>
+<p>基于 W3C、苹果开发者 等官方文档，并结合团队业务和开发过程中总结的规范约定，让页面HTML代码更具语义性。</p>
+</blockquote>
+</li>
+<li>CSS规范<blockquote>
+<p>统一规范团队 CSS 代码书写风格和使用 CSS 预编译语言语法风格，提供常用媒体查询语句和浏览器私有属性引用，并从业务层面统一规范常用模块的引用。</p>
+</blockquote>
+</li>
+<li>JS规范<blockquote>
+<p>统一规范团队 CSS 代码书写风格和使用 CSS 预编译语言语法风格，提供常用媒体查询语句和浏览器私有属性引用，并从业务层面统一规范常用模块的引用。</p>
+</blockquote>
+</li>
+<li>图片规范<blockquote>
+<p>了解各种图片格式特性，根据特性制定图片规范，包括但不限于图片的质量约定、图片引入方式、图片合并处理等，旨在从图片层面优化页面性能。</p>
+</blockquote>
+</li>
+<li>命名规范<blockquote>
+<p>从 目录、图片、HTML/CSS文件、ClassName 的命名等层面约定规范团队的命名习惯，增强团队代码的可读性。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>前后端接口规范</p>
+<ul>
+<li><p>职责分离</p>
+<ol>
+<li><p>前后端仅仅通过异步接口(AJAX/JSONP)来编程；</p>
+</li>
+<li><p>前后端都各自有自己的开发流程，构建工具，测试集合；</p>
+</li>
+<li><p>关注点分离，前后端变得相对独立并松耦合。</p>
+<table>
+<thead>
+<tr>
+<th align="center">前端</th>
+<th align="center">后端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">接收数据，返回数据</td>
+<td align="center">提供数据</td>
+</tr>
+<tr>
+<td align="center">处理渲染逻辑</td>
+<td align="center">处理业务逻辑</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+<li><p>规范原则</p>
+<ol>
+<li>接口返回数据即显示，前端仅做渲染逻辑处理；</li>
+<li>渲染逻辑禁止跨多个接口调用；</li>
+<li>前端关注交互、渲染逻辑，尽量避免业务逻辑处理的出现；</li>
+<li>请求响应传输数据格式：JSON，JSON数据尽量简单轻量，避免多级JSON的出现；</li>
+</ol>
+</li>
+<li><p>响应格式</p>
+<ol>
+<li>响应基本格式及处理状态值的规范<ul>
+<li>基本响应格式</li>
+<li>列表响应格式</li>
+</ul>
+</li>
+<li>特殊内容<ul>
+<li>下拉框、复选框、单选框统一由后端逻辑判定选中返回给前端展示；</li>
+<li>关于Boolean类型，JSON数据传输中一律使用1/0来标示，1为是/True，0为否/False</li>
+<li>关于日期类型，JSON数据传输中一律使用字符串，具体日期格式因业务而定；</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>git分支管理</p>
+<blockquote>
+<p>根据技术团队现状，分为不同的开发分支，灵活的进行协作和测试发布工作。</p>
+</blockquote>
+</li>
+<li><p>commit描述规范</p>
+<blockquote>
+<p>对每条提交的描述做清楚的阐述，对以后的 review code 有极大帮助</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h5><blockquote>
+<p>前端工程化的很多脏活累活都应该交给自动化工具来完成。需要秉持的一个理念是:任何简单机械的重复劳动都应该让机器去完成。</p>
+</blockquote>
+<ul>
+<li><p>版本管理</p>
+<blockquote>
+<p>版本管理就是为了更好地团体协作，以及方便追溯历史文件，以及相关的文件修改内容。现在市场主要分两种，git与svn</p>
+</blockquote>
+<ul>
+<li><p>git</p>
+</li>
+<li><p>svn</p>
+</li>
+</ul>
+</li>
+<li><p>图标合并</p>
+<ul>
+<li>iconfont<blockquote>
+<p>字形文件，减少请求资源，对设计要求较高。</p>
+</blockquote>
+</li>
+<li>利用打包器进行图标合成，webpack等<blockquote>
+<p>利用打包软件，把图标资源打包成sprite图（雪碧图）；</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>持续集成</p>
+<blockquote>
+<p>集成就是把所有分支的代码进行合并，查看项目是否正常。持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误。</p>
+</blockquote>
+<ul>
+<li><p>jenkins</p>
+<p>利用自动的持续集成工具，来不断 build 代码，如果代码第一时间出错，立马通知代码管理人员进行修改，保持线上代码的可用性</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>自动化构建</p>
+<blockquote>
+<p>自动化构建就是将源代码利用工具自动转换成用户可以使用的目标的过程。’目标’在这里指的是js,css,html的集合。’用户’可以是你、测试或者真正的用户。</p>
+</blockquote>
+<p>  <strong>自动构建的问题</strong></p>
+<ul>
+<li>文件压缩问题，文件大小—都是源码发布,所有文件都没有经过压缩合并处理，客户端访问需要逐个建立http会话下载资源,会很慢。</li>
+<li>文件hash指纹问题，一致性—没有版本管理,假设果客户端已经缓存a.jpg文件,而事实上你新的发布已经修改了a.jpg,客户端需要手动刷新缓存才能看到新的内容。</li>
+<li>热加载问题，你每次修改新的内容都需要重新推送到webSrv并且手动刷新浏览器</li>
+</ul>
+<p>  <strong>常用的构建工具</strong></p>
+<ul>
+<li>webpack</li>
+<li>gulp</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/" data-id="ckhw4m2pr0008b7vv68ra1tgf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 sevenFlow<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/sevenFlow.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/sevenFlow.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/fancybox/jquery.fancybox.css">
+
+  
+<script src="/sevenFlow.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/sevenFlow.github.io/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

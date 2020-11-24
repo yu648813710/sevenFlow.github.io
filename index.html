@@ -11,8 +11,8 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://yu648813710.github.io/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:locale">
+<meta property="article:author" content="sevenFlow">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/sevenFlow.github.io/atom.xml" title="Hexo" type="application/atom+xml">
@@ -64,33 +64,86 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-test-my-site" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-前端缓存整理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/sevenFlow.github.io/2020/11/22/test-my-site/" class="article-date">
-  <time datetime="2020-11-22T09:22:07.000Z" itemprop="datePublished">2020-11-22</time>
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.835Z" itemprop="datePublished">2020-11-24</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/sevenFlow.github.io/2020/11/22/test-my-site/">test_my_site</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="web缓存整理"><a href="#web缓存整理" class="headerlink" title="web缓存整理"></a>web缓存整理</h2><hr>
+<ul>
+<li>什么是缓存</li>
+<li>浏览器缓存<ul>
+<li>本地缓存<ul>
+<li>webstore<ul>
+<li>localstore</li>
+<li>sessionstore</li>
+</ul>
+</li>
+<li>Cookie</li>
+<li>websql</li>
+<li>indexDB</li>
+<li>应用换成Application cache</li>
+<li>PWA</li>
+</ul>
+</li>
+<li>默认缓存<ul>
+<li>往返缓存BFCache</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>http 缓存</li>
+<li>代理服务器缓存<ul>
+<li>CDN 缓存</li>
+</ul>
+</li>
+<li>网关缓存<ul>
+<li>DNS缓存</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="什么是缓存"><a href="#什么是缓存" class="headerlink" title="什么是缓存"></a>什么是缓存</h3><blockquote>
+<p>Web缓存游走于服务器和客户端之间。这个服务器可能是源服务器（资源所驻留的服务器Add），数量可能是1个或多个；这个客户端也可能是1个或多个。Web缓存就在服务器-客户端之间搞监控，监控请求，并且把请求输出的内容（例如html页面、 图片和文件）（统称为副本）另存一份；然后，如果下一个请求是相同的URL，则直接请求保存的副本，而不是再次麻烦源服务器。</p>
+</blockquote>
+<ul>
+<li><p>使用缓存的2个主要原因：</p>
+<ul>
+<li><p><strong>降低延迟：</strong> 缓存离客户端更近，因此，从缓存请求内容比从源服务器所用时间更少，呈现速度更快，网站就显得更灵敏。</p>
+</li>
+<li><p><strong>降低网络传输：</strong> 副本被重复使用，大大降低了用户的带宽使用，其实也是一种变相的省钱（如果流量要付费的话），同时保证了带宽请求在一个低水平上，更容易维护了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>PS：</strong> 经常会看到有人提到web的缓存机制，其实我更倾向于他们说这个问题的时候是指项目哪些地方需要用到缓存，缓存应该怎么去用，缓存对于整个项目而言充当的角色是，但是更多时候听到的是缓存都有什么，它们分别都有什么特性，这个应该是对缓存的了解</p>
+<hr>
+<h3 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h3><h4 id="1-本地缓存"><a href="#1-本地缓存" class="headerlink" title="1. 本地缓存"></a>1. 本地缓存</h4><h5 id="1-1-webstore"><a href="#1-1-webstore" class="headerlink" title="1.1 webstore"></a>1.1 webstore</h5><h6 id="1-1-1-localstore"><a href="#1-1-1-localstore" class="headerlink" title="1.1.1 localstore"></a>1.1.1 localstore</h6><blockquote>
+<p>在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。</p>
+</blockquote>
+<ul>
+<li>特性：<br>1：贮存大小5M，远远大于cookie的2K。<br>2：而且缓存时间没有限制，除非自己清除。<br>3：IE8 以下不兼容</li>
+<li>使用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> store=<span class="built_in">window</span>.localstore;<span class="comment">//获取</span></span><br><span class="line">store.setItem(key,val);<span class="comment">//设置缓存</span></span><br><span class="line">store.getItem(key);<span class="comment">//获取缓存</span></span><br><span class="line">storage.removeItem(key);<span class="comment">//删除某个缓存</span></span><br><span class="line">storage.clear();<span class="comment">//清楚全部</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="1-1-2-SessionStorage"><a href="#1-1-2-SessionStorage" class="headerlink" title="1.1.2 SessionStorage"></a>1.1.2 SessionStorage</h6><blockquote>
+<p>sessionStorage 是HTML5新增的一个会话存储对象，用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</p>
+</blockquote>
+<ul>
+<li>特性：<br>1：贮存大小5M，远远大于cookie的2K。<br>2：而且缓存时间没有限制，除非自己清除。<br>3：IE8 以下不兼容</li>
+</ul>
+<h4 id="1-2-cookie"><a href="#1-2-cookie" class="headerlink" title="1.2 cookie"></a>1.2 cookie</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yu648813710.github.io/2020/11/22/test-my-site/" data-id="ckhw35zut00016ovvbkmd44hd" class="article-share-link">Share</a>
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/" data-id="ckhw4m2ps000ab7vv6f9n1ghu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -100,46 +153,960 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-前端工程化的理解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/sevenFlow.github.io/2020/11/22/hello-world/" class="article-date">
-  <time datetime="2020-11-22T09:14:47.639Z" itemprop="datePublished">2020-11-22</time>
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.834Z" itemprop="datePublished">2020-11-24</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/sevenFlow.github.io/2020/11/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="前端工程化的理解"><a href="#前端工程化的理解" class="headerlink" title="前端工程化的理解"></a>前端工程化的理解</h2><hr>
+<h3 id="什么是前端工程化"><a href="#什么是前端工程化" class="headerlink" title="什么是前端工程化?"></a>什么是前端工程化?</h3><blockquote>
+<p>前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化。</p>
+</blockquote>
+<h3 id="前端工程化的目的"><a href="#前端工程化的目的" class="headerlink" title="前端工程化的目的:"></a>前端工程化的目的:</h3><blockquote>
+<p>为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间</p>
+</blockquote>
+<h3 id="前端工程化的重点"><a href="#前端工程化的重点" class="headerlink" title="前端工程化的重点:"></a>前端工程化的重点:</h3><blockquote>
+<p>利用分治思想化整为0，便于管理迭代，运维</p>
+</blockquote>
+<h3 id="前端工程化的主要包含什么"><a href="#前端工程化的主要包含什么" class="headerlink" title="前端工程化的主要包含什么:"></a>前端工程化的主要包含什么:</h3><ul>
+<li>模块化</li>
+<li>组件化</li>
+<li>规范化</li>
+<li>自动化</li>
+</ul>
+<h5 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h5><blockquote>
+<p>简单来说，模块化就是将一个大文件拆分成相互依赖的小文件，再进行统一的拼装和加载。</p>
+</blockquote>
+<ul>
+<li><p>JS 模块化</p>
+<ul>
+<li>commonJS <blockquote>
+<p>是同步加载JS的，会造成堵塞，不适合浏览器，更多是服务器在用</p>
+</blockquote>
+</li>
+<li>AMD规范<blockquote>
+<p>require.js 遵从的规范，依赖前置 ,可以异步加载js</p>
+</blockquote>
+</li>
+<li>CMD规范<blockquote>
+<p>sea.js 遵从的规范，什么时候使用 什么时候加载依赖，可以异步加载js</p>
+</blockquote>
+</li>
+<li>ES6的 modul<blockquote>
+<p>更为简洁，而且可以静态加载，动态引用（js引擎对脚本静态分析的时候，遇到模块加载命令import，就会生成一个只读引用）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>css 模块化 </p>
+<blockquote>
+<p>虽然SASS、LESS、Stylus等预处理器实现了CSS的文件拆分，但没有解决CSS模块化的一个重要问题：选择器的全局污染问题。</p>
+</blockquote>
+<ul>
+<li><p> VUE的scoped style 也算是一种解决css模块化的方式</p>
+</li>
+<li><p>CSS Modules仍然使用CSS，只是让JS来管理依赖。它能够最大化地结合CSS生态和JS模块化能力，目前来看是最好的解决方案。</p>
+</li>
+<li><p>为了避免全局选择器的冲突，需要制定CSS命名风格：</p>
+<ul>
+<li>BEM风格</li>
+<li>Bootstrap风格</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>资源的模块化（img,或者字体文件等等）</p>
+<blockquote>
+<p>资源包括 img 以及库的使用，以及字体文件这些，这些都可以通过webpack模块机制加载，所以重点在于webpack</p>
+</blockquote>
+<ul>
+<li>优点<ul>
+<li>依赖关系单一化：所有CSS和图片等资源的依赖关系统一走JS路线，无需额外处理CSS预处理器的依赖关系，也不需处理代码迁移时的图片合并、字体图片等路径问题； </li>
+<li>资源处理集成化：现在可以用loader对各种资源做各种事情，比如复杂的vue-loader等等；</li>
+<li>项目结构清晰化：使用Webpack后，你的项目结构总可以表示成这样的函数： dest = webpack(src, config)。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h5><blockquote>
+<p>从UI拆分下来的每个包含模板(HTML)+样式(CSS)+逻辑(JS)功能完备的结构单元，我们称之为组件。</p>
+</blockquote>
+<blockquote>
+<p>组件化≠模块化。模块化只是在文件层面上，对代码或资源的拆分；而组件化是在设计层面上，对UI（用户界面）的拆分。</p>
+</blockquote>
+<p> 常用的组件化框架主要的有 <code>Vue、React、Angular</code>，还有小程序。</p>
+<p> 自己构建组件化项目，需要处理引入方式使用webpack，所以选用框架是最好的方法。</p>
+<ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011774228">不用框架的情况下如何组件化</a></li>
+</ul>
+<h5 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h5><blockquote>
+<p>规范化其实是工程化中很重要的一个部分，项目初期规范制定的好坏会直接影响到后期的开发质量。</p>
+</blockquote>
+<ul>
+<li><p>目录结构的制定</p>
+<p>  优点：</p>
+<ol>
+<li>有助于提高项目的逻辑结构合理性</li>
+<li>对应扩展和合作</li>
+<li>方便资源的统一定位管理</li>
+</ol>
+</li>
+<li><p>编码规范包括</p>
+<ul>
+<li>HTML规范<blockquote>
+<p>基于 W3C、苹果开发者 等官方文档，并结合团队业务和开发过程中总结的规范约定，让页面HTML代码更具语义性。</p>
+</blockquote>
+</li>
+<li>CSS规范<blockquote>
+<p>统一规范团队 CSS 代码书写风格和使用 CSS 预编译语言语法风格，提供常用媒体查询语句和浏览器私有属性引用，并从业务层面统一规范常用模块的引用。</p>
+</blockquote>
+</li>
+<li>JS规范<blockquote>
+<p>统一规范团队 CSS 代码书写风格和使用 CSS 预编译语言语法风格，提供常用媒体查询语句和浏览器私有属性引用，并从业务层面统一规范常用模块的引用。</p>
+</blockquote>
+</li>
+<li>图片规范<blockquote>
+<p>了解各种图片格式特性，根据特性制定图片规范，包括但不限于图片的质量约定、图片引入方式、图片合并处理等，旨在从图片层面优化页面性能。</p>
+</blockquote>
+</li>
+<li>命名规范<blockquote>
+<p>从 目录、图片、HTML/CSS文件、ClassName 的命名等层面约定规范团队的命名习惯，增强团队代码的可读性。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>前后端接口规范</p>
+<ul>
+<li><p>职责分离</p>
+<ol>
+<li><p>前后端仅仅通过异步接口(AJAX/JSONP)来编程；</p>
+</li>
+<li><p>前后端都各自有自己的开发流程，构建工具，测试集合；</p>
+</li>
+<li><p>关注点分离，前后端变得相对独立并松耦合。</p>
+<table>
+<thead>
+<tr>
+<th align="center">前端</th>
+<th align="center">后端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">接收数据，返回数据</td>
+<td align="center">提供数据</td>
+</tr>
+<tr>
+<td align="center">处理渲染逻辑</td>
+<td align="center">处理业务逻辑</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+<li><p>规范原则</p>
+<ol>
+<li>接口返回数据即显示，前端仅做渲染逻辑处理；</li>
+<li>渲染逻辑禁止跨多个接口调用；</li>
+<li>前端关注交互、渲染逻辑，尽量避免业务逻辑处理的出现；</li>
+<li>请求响应传输数据格式：JSON，JSON数据尽量简单轻量，避免多级JSON的出现；</li>
+</ol>
+</li>
+<li><p>响应格式</p>
+<ol>
+<li>响应基本格式及处理状态值的规范<ul>
+<li>基本响应格式</li>
+<li>列表响应格式</li>
+</ul>
+</li>
+<li>特殊内容<ul>
+<li>下拉框、复选框、单选框统一由后端逻辑判定选中返回给前端展示；</li>
+<li>关于Boolean类型，JSON数据传输中一律使用1/0来标示，1为是/True，0为否/False</li>
+<li>关于日期类型，JSON数据传输中一律使用字符串，具体日期格式因业务而定；</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>git分支管理</p>
+<blockquote>
+<p>根据技术团队现状，分为不同的开发分支，灵活的进行协作和测试发布工作。</p>
+</blockquote>
+</li>
+<li><p>commit描述规范</p>
+<blockquote>
+<p>对每条提交的描述做清楚的阐述，对以后的 review code 有极大帮助</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h5><blockquote>
+<p>前端工程化的很多脏活累活都应该交给自动化工具来完成。需要秉持的一个理念是:任何简单机械的重复劳动都应该让机器去完成。</p>
+</blockquote>
+<ul>
+<li><p>版本管理</p>
+<blockquote>
+<p>版本管理就是为了更好地团体协作，以及方便追溯历史文件，以及相关的文件修改内容。现在市场主要分两种，git与svn</p>
+</blockquote>
+<ul>
+<li><p>git</p>
+</li>
+<li><p>svn</p>
+</li>
+</ul>
+</li>
+<li><p>图标合并</p>
+<ul>
+<li>iconfont<blockquote>
+<p>字形文件，减少请求资源，对设计要求较高。</p>
+</blockquote>
+</li>
+<li>利用打包器进行图标合成，webpack等<blockquote>
+<p>利用打包软件，把图标资源打包成sprite图（雪碧图）；</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>持续集成</p>
+<blockquote>
+<p>集成就是把所有分支的代码进行合并，查看项目是否正常。持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误。</p>
+</blockquote>
+<ul>
+<li><p>jenkins</p>
+<p>利用自动的持续集成工具，来不断 build 代码，如果代码第一时间出错，立马通知代码管理人员进行修改，保持线上代码的可用性</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>自动化构建</p>
+<blockquote>
+<p>自动化构建就是将源代码利用工具自动转换成用户可以使用的目标的过程。’目标’在这里指的是js,css,html的集合。’用户’可以是你、测试或者真正的用户。</p>
+</blockquote>
+<p>  <strong>自动构建的问题</strong></p>
+<ul>
+<li>文件压缩问题，文件大小—都是源码发布,所有文件都没有经过压缩合并处理，客户端访问需要逐个建立http会话下载资源,会很慢。</li>
+<li>文件hash指纹问题，一致性—没有版本管理,假设果客户端已经缓存a.jpg文件,而事实上你新的发布已经修改了a.jpg,客户端需要手动刷新缓存才能看到新的内容。</li>
+<li>热加载问题，你每次修改新的内容都需要重新推送到webSrv并且手动刷新浏览器</li>
+</ul>
+<p>  <strong>常用的构建工具</strong></p>
+<ul>
+<li>webpack</li>
+<li>gulp</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yu648813710.github.io/2020/11/22/hello-world/" data-id="ckhw35zui00006ovval0o02hm" class="article-share-link">Share</a>
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/" data-id="ckhw4m2pr0008b7vv68ra1tgf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于网页适配的总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.833Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于网页适配的总结"><a href="#关于网页适配的总结" class="headerlink" title="关于网页适配的总结"></a>关于网页适配的总结</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><p><a href="#intellectual">基础知识</a></p>
+</li>
+<li><p>   <a href="#pc">pc适配</a></p>
+</li>
+<li><p>   <a href="#bigScreen">大屏适配</a></p>
+</li>
+<li><p>   <a href="#modile">移动端适配</a></p>
+</li>
+<li><p>   <a href="#document">参考文档</a></p>
+</li>
+</ul>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a><span id='intellectual'>基础知识</span></h2><h4 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h4><p>像素是屏幕的最小单位，所以平常说的像素不是px，而是指设备屏幕的最小单位</p>
+<h4 id="设备像素"><a href="#设备像素" class="headerlink" title="设备像素"></a><strong>设备像素</strong></h4><p>设备像素又称物理像素（physical pixel），设备能控制显示的最小单位（每个单位下有三个子像素（红黄蓝）这就是rgb色域），我们可以把这些像素看作成显示器上一个个的点，一般指的是分辨率。</p>
+<blockquote>
+<p>​    之前没出现 Retina（视网膜） 技术之前（苹果公司提出），1px对应的就是一个物理像素，随之出现2倍屏，3倍屏指的是之前对应的1物理像素对应相应2倍甚至3倍，苹果公司已经解决了相应的1px渲染到 retina 设备的适配问题，开发人员需要解决的是图片适配的问题，200*200图片在正常屏幕下正常显示，但是在2倍或者3倍的屏幕下会被放大2，3倍，所以图片一般要做2到3倍的适配。</p>
+</blockquote>
+<h4 id="逻辑像素"><a href="#逻辑像素" class="headerlink" title="逻辑像素"></a>逻辑像素</h4><p>独立于设备的用于逻辑上衡量像素的单位。CSS 像素就是逻辑像素，CSS 像素是 Web 编程的概念。一般指px，<strong>它是图像显示的基本单元，既不是一个确定的物理量，也不是一个点或者小方块，而是一个抽象概念</strong>。所以在谈论像素时一定<strong>要清楚它的上下文</strong>！对于web的设备逻辑像素可用<code>screen.width</code>和<code>screen.height</code>去取。</p>
+<h4 id="设备像素比"><a href="#设备像素比" class="headerlink" title="设备像素比"></a>设备像素比</h4><p>设备分辨率 / 逻辑像素 = DPR（设备像素比）一般就是指的几倍屏，也可<code>window.devicePixelRatio</code>直接获取，是几倍屏就需要几倍的图片。</p>
+<h4 id="vw-vh（css3新增）-兼容性"><a href="#vw-vh（css3新增）-兼容性" class="headerlink" title="vw / vh（css3新增）(兼容性)"></a>vw / vh（css3新增）(兼容性)</h4><ul>
+<li>vw (设备的100%宽度)<ul>
+<li>1vw = 浏览器可视宽度 /100</li>
+</ul>
+</li>
+<li>vh(设备的100%高度)<ul>
+<li>1vh =浏览器可视高度 /100</li>
+</ul>
+</li>
+</ul>
+<h4 id="vmin-vmax（css3新增）-兼容性"><a href="#vmin-vmax（css3新增）-兼容性" class="headerlink" title="vmin/vmax（css3新增）(兼容性)"></a>vmin/vmax（css3新增）(兼容性)</h4><ul>
+<li>设备的高宽中哪一个小，哪个就是vmin，比如1920*1080，vmin代表的就是1080，所以1vmin就是 1080/100</li>
+<li>vmax与之相反</li>
+</ul>
+<h4 id="rem-em"><a href="#rem-em" class="headerlink" title="rem/em"></a>rem/em</h4><ul>
+<li>rem （css3新增）(兼容性)<ul>
+<li><strong>相对于HTML 根元素的 font-size的大小定义</strong></li>
+<li><strong>全局的rem大小是固定的</strong></li>
+<li>不设置的情况下 因为浏览器默认HTML的font-size是16px，所以1rem=16px</li>
+</ul>
+</li>
+<li>em<ul>
+<li> em的值并不是固定的</li>
+<li>em会继承父级元素的字体大小 </li>
+<li>如果父级元素未定义，那么1em=16px</li>
+</ul>
+</li>
+</ul>
+<h4 id="媒体查询（css3新增）-兼容性"><a href="#媒体查询（css3新增）-兼容性" class="headerlink" title="媒体查询（css3新增）(兼容性)"></a>媒体查询（css3新增）(兼容性)</h4><ul>
+<li>可以通过查询规则不同写入不同的css样式从而渲染</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries">逻辑操作符</a></li>
+</ul>
+<h4 id="meta信息"><a href="#meta信息" class="headerlink" title="meta信息"></a>meta信息</h4><ul>
+<li><p>元信息 用来告知浏览器的网页设置</p>
+</li>
+<li><p>viewport 的 meta</p>
+<ul>
+<li>  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">  
+</li>
+<li><pre><code class="tex">width：控制 viewport 的大小，可以指定的一个值，如 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。
+height：和 width 相对应，指定高度。
+initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。
+maximum-scale：允许用户缩放到的最大比例。
+minimum-scale：允许用户缩放到的最小比例。
+user-scalable：用户是否可以手动缩放
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">## &lt;span id&#x3D;&quot;pc&quot; &gt; PC适配 &lt;&#x2F;span&gt;</span><br><span class="line"></span><br><span class="line">#### [主流适配]( https:&#x2F;&#x2F;www.1688.com&#x2F; )</span><br><span class="line"></span><br><span class="line">* 1200px的主体宽度居中展示</span><br><span class="line">* 两侧用百分比展示</span><br><span class="line"></span><br><span class="line">#### [流式适配]( [https:&#x2F;&#x2F;xgfe.github.io&#x2F;2018&#x2F;01&#x2F;26&#x2F;zhoushiqi&#x2F;Web%E7%AB%AF%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88&#x2F;](https:&#x2F;&#x2F;xgfe.github.io&#x2F;2018&#x2F;01&#x2F;26&#x2F;zhoushiqi&#x2F;Web端屏幕适配方案&#x2F;) )</span><br><span class="line"></span><br><span class="line">&gt; 栅格栏布局</span><br><span class="line"></span><br><span class="line">- 设计师需要做栅格栏设计，页面均等为12份，然后所有的布局按照栅格栏的对齐线进行对齐</span><br><span class="line">- 当需要缩放时进行百分比缩放即可</span><br><span class="line">- 适合大量留白的页面，布局样式单一的页面 </span><br><span class="line"></span><br><span class="line">#### [响应式适配]( https:&#x2F;&#x2F;www.bootcss.com&#x2F; )</span><br><span class="line"></span><br><span class="line">&gt; 媒体查询</span><br><span class="line"></span><br><span class="line">- 示例 </span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;html</span><br><span class="line">    &lt;!-- link元素中的CSS媒体查询 --&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; media&#x3D;&quot;(max-width: 800px)&quot; href&#x3D;&quot;example.css&quot; &#x2F;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 样式表中的CSS媒体查询 --&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">    @media (max-width: 600px) &#123;</span><br><span class="line">      .facet_sidebar &#123;</span><br><span class="line">        display: none;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>提前写好相关的查询规则</p>
+<ul>
+<li>一般规则都是市面上的主流分辨率的宽度，</li>
+</ul>
+</li>
+</ul>
+<h2 id="大屏适配"><a href="#大屏适配" class="headerlink" title=" 大屏适配 "></a><span id="bigScreen" > 大屏适配 </span></h2><ul>
+<li>对接<ul>
+<li>大屏物理信息（大屏一般是led屏幕 ，有p系列的规则）<ul>
+<li>得知大屏的物理信息自己可计算出实际可达最高分辨率，比如 12m*4m 大小的p50 led屏 ，p50的是1平方米 400 * 400 个点，可算出实际分辨率为 12*400 / 4 *400 = 4800/1600</li>
+</ul>
+</li>
+<li><strong>大屏的分辨率（一定是甲方已知道的）</strong><ul>
+<li>需要告知设计，设计需要按照该分辨率作图</li>
+</ul>
+</li>
+<li>大屏的终端<ul>
+<li>只有终端支持最高的分辨率，大屏才可显示最高分辨率</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>选用方案<ul>
+<li>固定写法<ul>
+<li>直接把大小全部写死</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="移动端适配"><a href="#移动端适配" class="headerlink" title=" 移动端适配 "></a><span id="modile" > 移动端适配 </span></h2><h4 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h4><ul>
+<li>现在各大厂的小程序采用的都是 rpx代替px来进行布局，其实他就是rem ，所以咱们不需要操心适配的事情</li>
+</ul>
+<h4 id="H5移动端"><a href="#H5移动端" class="headerlink" title="H5移动端"></a>H5移动端</h4><ul>
+<li><p>流式布局</p>
+<ul>
+<li>简书，掘金（响应以及流式）</li>
+</ul>
+</li>
+<li><p><strong>rem 布局</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/amfe/lib-flexible">淘宝的 flexible </a></p>
+<ul>
+<li>利用不同分辨率下的 HTML 的font-size来控制 rem的大小，将屏幕分为10等份</li>
+</ul>
+</li>
+<li><p>网上所流传的 rem 计算公式</p>
+<ul>
+<li><p>不同分辨率，不同比例</p>
+</li>
+<li><pre><code class="js">resize(originSize) &#123;
+      let widths = document.documentElement.clientWidth
+        var scale = (widths / originSize) * 200 //在X轴下求出比例并放大100倍。
+      document.getElementsByTagName(&#39;html&#39;)[0].style.fontSize = scale + &#39;px&#39;
+    &#125;</code></pre>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title=" 参考文档 "></a><span id="document" > 参考文档 </span></h2><p><a href="%5Bhttps://xgfe.github.io/2018/01/26/zhoushiqi/Web%E7%AB%AF%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88/%5D(https://xgfe.github.io/2018/01/26/zhoushiqi/Web%E7%AB%AF%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88/)">Web 端屏幕适配方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5cd0f87d6fb9a0325031c7ae#heading-3">掌握web开发基础系列–物理像素、逻辑像素、css像素</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/libin-1/p/7148377.html">什么是物理像素、虚拟像素、逻辑像素、设备像素，什么又是 PPI, DPI, DPR 和 DIP</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5d21a9bd5188255360190e7e#heading-1">浅谈-web屏幕适配的解决方案</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/" data-id="ckhw4m2pp0005b7vvfbdzcaib" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于魔术字符串在项目中怎么解耦" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.833Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于魔术字符串在项目中的解耦"><a href="#关于魔术字符串在项目中的解耦" class="headerlink" title="关于魔术字符串在项目中的解耦"></a>关于魔术字符串在项目中的解耦</h1><hr>
+<h2 id="什么叫魔术字符串"><a href="#什么叫魔术字符串" class="headerlink" title="什么叫魔术字符串"></a>什么叫魔术字符串</h2><blockquote>
+<p>魔术字符串指的是在代码中 <strong>多次出现</strong> <strong>耦合性极高</strong> 的字符串，在实际的代码中应该尽量减少如下</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span>(<span class="params">shape, options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> area = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> (shape) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;Triangle&#x27;</span>: <span class="comment">// 魔术字符串</span></span><br><span class="line">      area = <span class="number">0.5</span> * options.width * options.height</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="comment">/* ... more code ... */</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> area</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getArea(<span class="string">&#x27;Triangle&#x27;</span>, &#123; <span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span> &#125;) <span class="comment">// 魔术字符串</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>getArea</code>函数中多次出现 <code>Triangle</code> 变量，这个就是耦合性极高</p>
+<h2 id="修改优化"><a href="#修改优化" class="headerlink" title="修改优化"></a>修改优化</h2><blockquote>
+<p>利用对象属性替换字符串，减少耦合性，让修改代码变得简单起来，如果涉及修改判断条件，直接修改 <code>obj</code> 里的对象属性即可</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  triangle: <span class="string">&#x27;Triangle&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span>(<span class="params">shape, options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> area = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> (shape) &#123;</span><br><span class="line">    <span class="keyword">case</span> obj.triangle: <span class="comment">// 利用对象属性替换字符串</span></span><br><span class="line">      area = <span class="number">0.5</span> * options.width * options.height</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="comment">/* ... more code ... */</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> area</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getArea(obj.triangle, &#123; <span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span> &#125;) <span class="comment">// 利用对象属性替换字符串</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="利用Symbol函数进行再次优化"><a href="#利用Symbol函数进行再次优化" class="headerlink" title="利用Symbol函数进行再次优化"></a>利用<code>Symbol</code>函数进行再次优化</h2><blockquote>
+<p>通过优化代码，我们可以看到，判断条件不再关注<code>value</code>值实际是什么，关注的是相同的<code>key</code>取到的值，所以<code>value</code>是什么不在重要</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  triangle: <span class="built_in">Symbol</span>(<span class="string">&#x27;triangle&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span>(<span class="params">shape, options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> area = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> (shape) &#123;</span><br><span class="line">    <span class="keyword">case</span> obj.triangle: <span class="comment">// 利用对象属性替换字符串</span></span><br><span class="line">      area = <span class="number">0.5</span> * options.width * options.height</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="comment">/* ... more code ... */</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> area</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getArea(obj.triangle, &#123; <span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span> &#125;) <span class="comment">// 利用对象属性替换字符串</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/" data-id="ckhw4m2pq0007b7vve4xbactd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-从0搭建一个react工程项目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.832Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="从0搭建一个react工程项目"><a href="#从0搭建一个react工程项目" class="headerlink" title="从0搭建一个react工程项目"></a>从0搭建一个react工程项目</h1><h3 id="从零搭建项目都需要搭建什么"><a href="#从零搭建项目都需要搭建什么" class="headerlink" title="从零搭建项目都需要搭建什么"></a>从零搭建项目都需要搭建什么</h3><blockquote>
+<p>按照之前使用最全的vue-cli脚手架来对比</p>
+</blockquote>
+<ul>
+<li>热加载</li>
+<li>ECMAscript 6 的处理</li>
+<li>模式</li>
+<li>压缩打包</li>
+<li>懒加载</li>
+<li>css的预处理</li>
+<li>eslint的语法检测</li>
+</ul>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><blockquote>
+<p>使用的包管理工具是 <code>yarn</code></p>
+</blockquote>
+<h3 id="yarn-init"><a href="#yarn-init" class="headerlink" title="yarn init"></a>yarn init</h3><ul>
+<li><p>新建目录后 执行 yarn init，执行后 会让你写入项目信息，写入后会目录下会多一个 <code>packge.json</code>文件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;webpack-react&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;从零搭建&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Yuwentao&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;MIT&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;private&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="安装webapck以及webpack-cli"><a href="#安装webapck以及webpack-cli" class="headerlink" title="安装webapck以及webpack-cli"></a>安装<code>webapck</code>以及<code>webpack-cli</code></h3><ul>
+<li>运行 <code>yarn add webpack -D</code></li>
+<li>运行 <code>yarn add webpack-cli -D</code></li>
+</ul>
+<h3 id="增加命令行任务"><a href="#增加命令行任务" class="headerlink" title="增加命令行任务"></a>增加命令行任务</h3><ul>
+<li><p>在 <code>package.json</code>文件中的 <code>script</code>选项写上 配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;webpack&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="配置入口以及出口文件"><a href="#配置入口以及出口文件" class="headerlink" title="配置入口以及出口文件"></a>配置入口以及出口文件</h3><ul>
+<li>这块要用到 <code>webapck</code> 的知识 <a href="%5Bhttps://www.webpackjs.com/concepts/#%E5%85%A5%E5%8F%A3-entry-%5D(https://www.webpackjs.com/concepts/#%E5%85%A5%E5%8F%A3-entry-)">entry</a> 入口以及 <a href="%5Bhttps://www.webpackjs.com/concepts/#%E5%87%BA%E5%8F%A3-output-%5D(https://www.webpackjs.com/concepts/#%E5%87%BA%E5%8F%A3-output-)">output</a> 出口</li>
+</ul>
+<p>上一步之所以能 build 成功 就是因为，webpack4的默认 entery 是 <code>src/index.js</code>而默认output出口是<code>dist/main.js</code>，要进行修改就必须新建 webpack.config.js ，在这个js文件里修改</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// node js 模块提供用于处理文件路径和目录路径的实用工具</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="comment">// 入口</span></span><br><span class="line">    entry: <span class="string">&#x27;./src/one.js&#x27;</span>,</span><br><span class="line">    <span class="comment">// 出口配置</span></span><br><span class="line">    output: &#123;</span><br><span class="line">      <span class="comment">// 输出路径</span></span><br><span class="line">      path: path.resolve(__dirname, <span class="string">&quot;dist&quot;</span>),</span><br><span class="line">      <span class="comment">// 输出文件名称</span></span><br><span class="line">      filename: <span class="string">&#x27;index.js&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="不同模式-mode-怎么配置"><a href="#不同模式-mode-怎么配置" class="headerlink" title="不同模式 mode 怎么配置"></a>不同模式 mode 怎么配置</h3><ul>
+<li>通过设置 mode 可以加载不同的 webpack 配置</li>
+</ul>
+<p>模式分为 production  以及 development ,produciton 模式对打包进行了默认优化，可以直接 写在配置文件，也可直接执行命令 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="comment">// 模式</span></span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">webpack --mode=production</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决热加载问题"><a href="#解决热加载问题" class="headerlink" title="解决热加载问题"></a>解决热加载问题</h2><ul>
+<li><p>需要安装 webpack-dev-server 插件 进行配置 </p>
+<p>webpack.config.js文件的配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server --open&quot;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成后，就可以进行热加载启动，可以设置端口号 ,设置启动的路径以及文件名称，以及是否显示打印台的log信息，以及进度显示 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 热加载设置</span></span><br><span class="line">devServer: &#123;</span><br><span class="line">  <span class="comment">// 端口号</span></span><br><span class="line">  port: <span class="number">1111</span>,</span><br><span class="line">  <span class="comment">// 被作为索引的文件名称</span></span><br><span class="line">  index: <span class="string">&#x27;index.html&#x27;</span>,</span><br><span class="line">  <span class="comment">// 告诉 dev-server 在 server 启动后打开浏览器。默认禁用。</span></span><br><span class="line">  open: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 告诉服务器从哪个目录中提供内容。只有在你想要提供静态文件时才需要</span></span><br><span class="line">  contentBase: path.join(__dirname, <span class="string">&#x27;public&#x27;</span>),</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">// 不显示打印台的log以及进度显示 只能命令行配置 </span></span><br><span class="line">  webpack-dev-server --info=<span class="literal">false</span> --progress</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在的热加载是有问题的，每次更新js都会导致页面重新加载，可以用 webpack 的热模块加载来实现，页面无加载</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 webpack</span></span><br><span class="line"><span class="comment">// 本身webpack 的模块</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 devServer 设置里加上</span></span><br><span class="line"><span class="comment">// 热加载设置</span></span><br><span class="line">devServer: &#123;</span><br><span class="line">  <span class="comment">// 模块热加载</span></span><br><span class="line">  hot: <span class="literal">true</span>,</span><br><span class="line">&#125;,</span><br><span class="line"> <span class="comment">// 插件设置</span></span><br><span class="line"> plugins: [</span><br><span class="line">  <span class="comment">// 热模块替换，如果只用热加载的话，每次文件有修改，页面都会重建加载</span></span><br><span class="line">  <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在入口文件加上 热模块启动的执行</p>
+<p>当 devserver 启动时，出口文件不会打包在 硬盘中，而是存在 内存中，所以 设置的 启动 页面 应该引入 内存中的 打包后的文件 也就是 index.js</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>引入的入口 js 文件，写入热模块判断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">module</span>.hot) &#123;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">module</span>.hot.accept();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="解决es6的解析问题"><a href="#解决es6的解析问题" class="headerlink" title="解决es6的解析问题"></a>解决es6的解析问题</h2><ul>
+<li><p>先安装 babel 的包</p>
+<p><code>yarn add @babel/core @babel/preset-env babel-loader -D</code></p>
+</li>
+<li><p>配置<code>webpack.config.js</code>里的模块规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这些选项决定了如何处理项目中的不同类型的模块</span></span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  <span class="comment">// 处理模块的规则</span></span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: <span class="string">&quot;babel-loader&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在根目录新建 <code>.babellrc</code>文件，写入配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;presets&quot;</span>: [<span class="string">&quot;@babel/preset-env&quot;</span>],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="设置不同模式的启动"><a href="#设置不同模式的启动" class="headerlink" title="设置不同模式的启动"></a>设置不同模式的启动</h2><blockquote>
+<p>按照 vue-cli 来搭建模式启动的，vue-cli可以通过 启动命令 设置不同 mode 来决定读取哪些 环境文件。</p>
+</blockquote>
+<ul>
+<li><p>怎么通过 不同命令处理来标识 不同的 <code>env</code></p>
+<p>命令行</p>
+<p><code>&quot;start:prd&quot;: &quot;webpack-dev-server --info=false --progress --env=prd&quot;</code></p>
+<p>配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env, argv</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(env) <span class="comment">// prd</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在的命令可以启动不同的标识了 <code>env</code>，然后可以用不同的 <code>env</code>来标识不同的配置</p>
+</li>
+<li><p>怎么通过<code>env</code>来标识不同的配置</p>
+</li>
+</ul>
+<p>  拿到<code>env</code>后，就可以用它判断是什么命令启动，然后加载不同 webpack配置文件就行了</p>
+<p>  先有基础的webpack配置文件 <code>webpack.config.js</code>，然后新建一个 <code>webpack.dev.config.js</code>文件，写入在 dev 模式运行需要加入什么配置</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dev 模式下的</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env, argv</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="comment">// 模式</span></span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// 插件设置</span></span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="comment">// 允许创建一个在编译时可以配置的全局常量</span></span><br><span class="line">      <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">        <span class="string">&#x27;process.env&#x27;</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;APP_IS&#x27;</span>: <span class="string">&#x27;false&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  借助 ``</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/" data-id="ckhw4m2pq0006b7vvcyuf56dd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wsl系统修改bash显示git分支名称" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/wsl%E7%B3%BB%E7%BB%9F%E4%BF%AE%E6%94%B9bash%E6%98%BE%E7%A4%BAgit%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.831Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="wsl-系统修改-bash-显示-git-分支名称"><a href="#wsl-系统修改-bash-显示-git-分支名称" class="headerlink" title="wsl 系统修改 bash 显示 git 分支名称"></a>wsl 系统修改 bash 显示 git 分支名称</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><ul>
+<li>需要再 wsl 的命令行展示 git 分支名称</li>
+</ul>
+<h2 id="修改步骤"><a href="#修改步骤" class="headerlink" title="修改步骤"></a>修改步骤</h2><ul>
+<li><p><code>cd ~</code></p>
+</li>
+<li><p><code>vim .bashrc</code></p>
+</li>
+<li><p>替换以下内容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$color_prompt</span>&quot;</span> = yes ]; <span class="keyword">then</span></span><br><span class="line">    PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ &#x27;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h:\w\$ &#x27;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>替换为</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add git branch if its present to PS1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">parse_git_branch</span></span>() &#123;</span><br><span class="line">git branch 2&gt; /dev/null | sed -e <span class="string">&#x27;/^[^*]/d&#x27;</span> -e <span class="string">&#x27;s/* \(.*\)/(\1)/&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$color_prompt</span>&quot;</span> = yes ]; <span class="keyword">then</span></span><br><span class="line">PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ &#x27;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h:\w$(parse_git_branch)\$ &#x27;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结束于</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> color_prompt force_color_prompt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/wsl%E7%B3%BB%E7%BB%9F%E4%BF%AE%E6%94%B9bash%E6%98%BE%E7%A4%BAgit%E5%88%86%E6%94%AF%E5%90%8D%E7%A7%B0/" data-id="ckhw4m2po0004b7vv7wm9h218" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue-cli3的打包优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/vue-cli3%E7%9A%84%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.831Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue-cli3-的-打包优化"><a href="#vue-cli3-的-打包优化" class="headerlink" title="vue-cli3 的 打包优化"></a>vue-cli3 的 打包优化</h1><h2 id="先看打包情况"><a href="#先看打包情况" class="headerlink" title="先看打包情况"></a>先看打包情况</h2><ul>
+<li><p>需要安装 webpack-bundle-analyzer </p>
+<ul>
+<li>正常打包 会出现一个分析页面，直接看即可</li>
+</ul>
+</li>
+<li><p>配置</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: (config) =&gt; &#123;</span><br><span class="line">config</span><br><span class="line">  .plugin(&#x27;webpack-bundle-analyzer&#x27;)</span><br><span class="line">  .use(require(&#x27;webpack-bundle-analyzer&#x27;).BundleAnalyzerPlugin)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要在vue.config配置</li>
+</ul>
+<h2 id="vue-config-里的-productionSourceMap-设置为false"><a href="#vue-config-里的-productionSourceMap-设置为false" class="headerlink" title="vue.config 里的 productionSourceMap 设置为false"></a>vue.config 里的 productionSourceMap 设置为false</h2><ul>
+<li>由于vuecli 默认配置的webpack中是打开了 SourceMap 的，而服务端的更新通常都是增量更新，前端每次在打包的时候输出的SourceMap 文件会造成服务端文件冗余。并且在开启 SourceMap 之后build 速度会慢下来很多。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  productionSourceMap: false,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-compression-webpack-plugin-开启-Gzip-打包"><a href="#安装-compression-webpack-plugin-开启-Gzip-打包" class="headerlink" title="安装 compression-webpack-plugin 开启 Gzip 打包"></a>安装 compression-webpack-plugin 开启 Gzip 打包</h2><p>Gzip是GNU zip的缩写，顾名思义是一种压缩技术。它将浏览器请求的文件先在服务器端进行压缩，然后传递给浏览器，浏览器解压之后再进行页面的解析工作。在服务端开启Gzip支持后，我们前端需要提供资源压缩包。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在vue-config.js 中加入</span></span><br><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;compression-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">&#x27;js&#x27;</span>, <span class="string">&#x27;css&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> isProduction = process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span>;</span><br><span class="line"></span><br><span class="line">.....</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">....</span><br><span class="line">  configureWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (isProduction) &#123;</span><br><span class="line">      config.plugins.push(<span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">        algorithm: <span class="string">&#x27;gzip&#x27;</span>,</span><br><span class="line">        test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&#x27;\\.(&#x27;</span> + productionGzipExtensions.join(<span class="string">&#x27;|&#x27;</span>) + <span class="string">&#x27;)$&#x27;</span>),</span><br><span class="line">        threshold: <span class="number">10240</span>,</span><br><span class="line">        minRatio: <span class="number">0.8</span></span><br><span class="line">      &#125;))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="CDN-引入，把一些不会变动的库换至-CDN-引入的方式（未完）"><a href="#CDN-引入，把一些不会变动的库换至-CDN-引入的方式（未完）" class="headerlink" title="CDN 引入，把一些不会变动的库换至 CDN 引入的方式（未完）"></a>CDN 引入，把一些不会变动的库换至 CDN 引入的方式（未完）</h2><p>​         在index.html中，添加CDN资源，例如bootstrap上的资源： </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcss.com/vue/2.5.2/vue.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/vue-cli3%E7%9A%84%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/" data-id="ckhw4m2po0003b7vva8a0h6jm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react的redux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/08/16/react%E7%9A%84redux/" class="article-date">
+  <time datetime="2020-08-16T13:03:03.836Z" itemprop="datePublished">2020-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react的状态管理"><a href="#react的状态管理" class="headerlink" title="react的状态管理"></a>react的状态管理</h1><h2 id="什么是状态管理"><a href="#什么是状态管理" class="headerlink" title="什么是状态管理"></a>什么是状态管理</h2><blockquote>
+<p>对于跨组件状态进行统一管理，更加方便组件间的通信以及逻辑公用，状态就是对于组件来说可变的变量。</p>
+</blockquote>
+<h2 id="为什么需要状态管理"><a href="#为什么需要状态管理" class="headerlink" title="为什么需要状态管理"></a>为什么需要状态管理</h2><ul>
+<li>随着应用的规模越来越大，功能越来越复杂，组件的抽象粒度会越来越细，在视图中组合起来后层级也会越来越深，能够方便的<strong>跨组件共享状态</strong>成为迫切的需求。</li>
+<li>状态也需要按模块切分，状态的变更逻辑背后其实就是我们的业务逻辑，将其抽离出来能够彻底<strong>解耦ui和业务</strong>，有利于逻辑复用，以及持续的维护和迭代。</li>
+<li>状态如果能够被集中的管理起来，并合理的派发有利于组件<strong>按需更新</strong>，缩小渲染范围，从而提高渲染性能</li>
+</ul>
+<h2 id="都有那些状态管理"><a href="#都有那些状态管理" class="headerlink" title="都有那些状态管理"></a>都有那些状态管理</h2><h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h3><ul>
+<li>vuex</li>
+</ul>
+<h3 id="react"><a href="#react" class="headerlink" title="react"></a>react</h3><ul>
+<li>redux</li>
+</ul>
+<p>其实主要是redux，剩下都是衍生出来的**<em>类redux**</em>的状态库，比如 <code>redux-sage,redux-thunk...</code></p>
+<h2 id="redux的使用流程"><a href="#redux的使用流程" class="headerlink" title="redux的使用流程"></a>redux的使用流程</h2><h3 id="创建全局store属性"><a href="#创建全局store属性" class="headerlink" title="创建全局store属性"></a>创建全局store属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store.js 文件</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">&#x27;./reducers&#x27;</span> <span class="comment">// 这个是修改store的文件</span></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在reducers里写入store的值以及改变函数"><a href="#在reducers里写入store的值以及改变函数" class="headerlink" title="在reducers里写入store的值以及改变函数"></a>在reducers里写入store的值以及改变函数</h3><p>写入你要用的状态，以及改变状态的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// todos.js</span></span><br><span class="line"><span class="comment">// 类似与vuex里的mutions</span></span><br><span class="line"><span class="comment">// reducers必需是一个方法，方法内含有两个参数，一个初始值，一个action的提交对象，action的规则是必须是含有type的一个对象</span></span><br><span class="line"><span class="comment">// 而且必须是一个纯函数，什么是纯函数，就是不改变参数的函数就是纯函数</span></span><br><span class="line"><span class="keyword">const</span> todos = <span class="function">(<span class="params">state = [], action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;ADD_TODO&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> [</span><br><span class="line">                ...state,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: action.id,</span><br><span class="line">                    text: action.text,</span><br><span class="line">                    completed: <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;CHANGE_TODO&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> state.map(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(res.id === action.id) &#123;</span><br><span class="line">                    res.completed = !res.completed;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;)</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> todos</span><br></pre></td></tr></table></figure>
+
+<p>和其他的状态管理合并然后导出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> todos <span class="keyword">from</span> <span class="string">&#x27;./todos&#x27;</span> <span class="comment">// todo任务列表的状态</span></span><br><span class="line"><span class="keyword">import</span> visibilityFilter <span class="keyword">from</span> <span class="string">&#x27;./visibilityFilter&#x27;</span> <span class="comment">// 筛选的状态</span></span><br><span class="line"><span class="keyword">const</span> todoApp = combineReducers(&#123; <span class="comment">// 这里的 combineReducers 类似与vuex里的module，是为了更好的管理大型状态</span></span><br><span class="line">    todos,</span><br><span class="line">    visibilityFilter</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> todoApp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="在组件上使用"><a href="#在组件上使用" class="headerlink" title="在组件上使用"></a>在组件上使用</h3><ul>
+<li><p>获取定义好的状态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;../store&#x27;</span> <span class="comment">// 引入sore</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todos = store.getState().todos; <span class="comment">// 获取todos的状态</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改状态</p>
+<p>dispatch是唯一该正规改变state的方法，直接修改也可以但是并不规范，而且会导致调试工具无法处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;../store&#x27;</span> <span class="comment">// 引入sore</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> action = <span class="function">(<span class="params">id</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: <span class="string">&#x27;CHANGE_TODO&#x27;</span>,</span><br><span class="line">        id</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;<span class="comment">// 定义cation</span></span><br><span class="line"></span><br><span class="line">store.dispatch(action(<span class="number">1</span>));<span class="comment">// 使用dispatch执行reducer里的方法然后修改state</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="store挂载到react的实例，然后state改变dom也可以响应"><a href="#store挂载到react的实例，然后state改变dom也可以响应" class="headerlink" title="store挂载到react的实例，然后state改变dom也可以响应"></a>store挂载到react的实例，然后state改变dom也可以响应</h3><p>​    所有前面的代码其实只是组件的行为对于state产生改变，或者用 state，但是并无法完成响应渲染。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">&#x27;react-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./containers/App&#x27;</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初次渲染</span></span><br><span class="line">render(</span><br><span class="line">    &lt;App /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br><span class="line"><span class="comment">// 监听变化然后重新渲染, subscribe 监听属性</span></span><br><span class="line">store.subscribe(<span class="function">()=&gt;</span> &#123;</span><br><span class="line">    render(</span><br><span class="line">        &lt;App /&gt;,</span><br><span class="line">      <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">    )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意的点"><a href="#注意的点" class="headerlink" title="注意的点"></a>注意的点</h3><ul>
+<li>全局应该只有一个store作为状态管理</li>
+<li>reducers应该是一个纯函数，不能修改参数，只能返回新的值</li>
+<li><strong><em>type 没有校验重复名称，意思就是可以有相同的type会导致出现问题</em></strong></li>
+</ul>
+<h2 id="redux的基础api"><a href="#redux的基础api" class="headerlink" title="redux的基础api"></a>redux的基础api</h2><h3 id="createStore"><a href="#createStore" class="headerlink" title="createStore"></a>createStore</h3><ul>
+<li>参数<ol>
+<li><code>reducer</code> <em>(Function)</em>: 接收两个参数，分别是当前的 state 树和要处理的action，返回新的 state 树。</li>
+<li>[<code>preloadedState</code>] <em>(any)</em>: 初始时的 state。也就是说只能初始化的时候传值，如果需要后端数据那么请求后再初始化</li>
+<li><code>enhancer</code> <em>(Function)</em>: Store enhancer 是一个组合 store creator 的高阶函数，返回一个新的强化过的 store creator。这与 middleware 相似，它也允许你通过复合函数改变 store 接口。说白了就是可以在这个里面对action的过程做一个拦截，做一些动作，比如记载action的提交记录之类的。</li>
+</ol>
+</li>
+</ul>
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><ul>
+<li>getState()</li>
+<li>dispatch(action)</li>
+<li>subcribe(listener)</li>
+<li>replaceReducer(nextReducer)</li>
+</ul>
+<p>着重说一下 <code>replaceReducer</code>,这个用法是可以替换当前的reducer，意思就是可以实现动态的reducer，比如可以给之前reducer增加新的reducer</p>
+<h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers"></a>combineReducers</h3><p>这个就是一个vuex里的module作用，可以组合多个reducer，传参也是reducer，示例如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rootReducer = combineReducers(&#123;<span class="attr">potato</span>: potatoReducer, <span class="attr">tomato</span>: tomatoReducer&#125;)</span><br><span class="line"><span class="comment">// rootReducer 将返回如下的 state 对象</span></span><br><span class="line">&#123;</span><br><span class="line">  potato: &#123;</span><br><span class="line">    <span class="comment">// ... potatoes, 和一些其他由 potatoReducer 管理的 state 对象 ... </span></span><br><span class="line">  &#125;,</span><br><span class="line">  tomato: &#123;</span><br><span class="line">    <span class="comment">// ... tomatoes, 和一些其他由 tomatoReducer 管理的 state 对象，比如说 sauce 属性 ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h2><h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><ul>
+<li>&lt; Provider store&gt;</li>
+</ul>
+<ul>
+<li>connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])</li>
+</ul>
+<h2 id="redux的调试工具"><a href="#redux的调试工具" class="headerlink" title="redux的调试工具"></a>redux的调试工具</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><ul>
+<li>有VPN的安装地址，<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/search/redux?hl=zh-CN">redux DevTools</a></li>
+<li>国内安装地址，<a target="_blank" rel="noopener" href="https://chrome.zzzmh.cn/">极简插件</a></li>
+</ul>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><ul>
+<li><p>在入口文件写入 调用方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">&#x27;react-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./components/App&#x27;</span></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">&#x27;./reducers&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否有redux的开发者工具</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reduxDevtools = <span class="built_in">window</span>.devToolsExtension ? <span class="built_in">window</span>.devToolsExtension() : <span class="function">()=&gt;</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用即可</span></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer, reduxDevtools)</span><br><span class="line"></span><br><span class="line">render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">  &lt;/Provider&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看浏览器控制台redux的选项里面有了一些内容</p>
+<p><img src="C:\Users\7\AppData\Roaming\Typora\typora-user-images\image-20200815131109731.png" alt="image-20200815131109731"></p>
+</li>
+</ul>
+<h2 id="saga的出现"><a href="#saga的出现" class="headerlink" title="saga的出现"></a>saga的出现</h2><p>… </p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://cn.redux.js.org/docs/react-redux/">React-dedux</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012142449">4 张动图解释为什么（什么时候）使用 Redux</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c876eff736e7">redux调试工具</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/08/16/react%E7%9A%84redux/" data-id="ckhw4m2pn0002b7vvfnn7huot" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react的生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/05/16/react%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="article-date">
+  <time datetime="2020-05-16T09:01:13.543Z" itemprop="datePublished">2020-05-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react的生命周期"><a href="#react的生命周期" class="headerlink" title="react的生命周期"></a>react的生命周期</h1><blockquote>
+<p>其实react生命周期细分的化分为，V16.3之前 到 V16.3 然后到V16.4，主要原因是react-domV16.3之前的版本渲染是同步的，然后渲染的时候 会导致 CPU堵塞，所以为了解决这个问题，react提出了 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26027085">fiber</a> 解决方案，成为了异步处理渲染，这样导致渲染前的生命周期会重复调用，所以生命周期废弃了一部分API,出了新的API</p>
+</blockquote>
+<h2 id="reactV16-0前的生命周期"><a href="#reactV16-0前的生命周期" class="headerlink" title="reactV16.0前的生命周期"></a>reactV16.0前的生命周期</h2><h3 id="1-组件初始化-initialization-阶段"><a href="#1-组件初始化-initialization-阶段" class="headerlink" title="1.组件初始化(initialization)阶段"></a>1.组件初始化(initialization)阶段</h3><blockquote>
+<p>也就是以下代码中类的构造方法( constructor() ),Test类继承了react Component这个基类，也就继承这个react的基类，才能有render(),生命周期等方法可以使用，这也说明为什么<code>函数组件不能使用这些方法</code>的原因。</p>
+</blockquote>
+<p><code>super(props)</code>用来调用基类的构造方法( constructor() ), 也将父组件的props注入给子组件，功子组件读取(组件中props只读不可变，state可变)。<br> 而<code>constructor()</code>用来做一些组件的初始化工作，如定义this.state的初始内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">      <span class="comment">// super指向原类的构造方法</span></span><br><span class="line">    <span class="built_in">super</span>(props);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-组件的挂载-Mounting-阶段"><a href="#2-组件的挂载-Mounting-阶段" class="headerlink" title="2.组件的挂载(Mounting)阶段"></a>2.组件的挂载(Mounting)阶段</h3><blockquote>
+<p>此阶段分为componentWillMount，render，componentDidMount三个时期。(将要挂载，渲染，已经挂载)</p>
+</blockquote>
+<ul>
+<li><p>componentWillMount</p>
+<p>在组件挂载到DOM前调用，且只会被调用一次，在这边调用this.setState不会引起组件重新渲染，也可以把写在这边的内容提前到constructor()中，所以项目中很少用。</p>
+</li>
+<li><p>render</p>
+<ul>
+<li><p>根据组件的props和state（两者的重传递和重赋值，无论值是否有变化，都可以引起组件重新render）</p>
+</li>
+<li><p>return 一个React元素（描述组件，即UI）不负责组件实际渲染工作，之后由React自身根据此元素去渲染出页面DOM</p>
+</li>
+<li><p>不能在里面执行this.setState，会有改变组件状态的副作用，会重复调用render</p>
+</li>
+</ul>
+</li>
+<li><p>componentDidMount</p>
+<p>组件挂载到dom上后，只会调用一次</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/05/16/react%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" data-id="ckhw4m2pl0001b7vv6de5euuh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS-Modules学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/04/29/CSS-Modules%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-04-29T14:40:23.587Z" itemprop="datePublished">2020-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS-Modules学习笔记"><a href="#CSS-Modules学习笔记" class="headerlink" title="CSS-Modules学习笔记"></a>CSS-Modules学习笔记</h1><h2 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h2><blockquote>
+<p>CSS的规则都是全局的，任何一个组件的样式规则，都对整个页面有效。</p>
+</blockquote>
+<ul>
+<li>产生局部作用域的唯一方法，就是使用一个独一无二的<code>class</code>的名字，不会与其他选择器重名。这就是 CSS Modules 的做法。<ul>
+<li>构建工具会把标签上的class以及样式表里的都进行哈希编译，这样就只对组件有效了</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 示例写法 */</span></span><br><span class="line"><span class="comment">/* 样式表正常写，组件需要按照变量的方式写class如下 */</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&#x27;./App.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;h1 className=&#123;styles.title&#125;&gt;</span><br><span class="line">      Hello World</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><blockquote>
+<p>CSS Modules 允许使用<code>:global(.className)</code>的语法，声明一个全局规则。凡是这样声明的<code>class</code>，都不会被编译成哈希字符串。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* css示例 */</span></span><br><span class="line"><span class="selector-pseudo">:global(.title)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 示例写法 */</span></span><br><span class="line"><span class="comment">/* 组件正常写 */</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&#x27;./App.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;h1 className=<span class="string">&quot;title&quot;</span>&gt;</span><br><span class="line">      Hello World</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>CSS Modules 还提供一种显式的局部作用域语法<code>:local(.className)</code>，等同于<code>.className</code>，所以上面的<code>App.css</code>也可以写成下面这样</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 和正常写并没什么不同 */</span></span><br><span class="line"><span class="selector-pseudo">:local(.title)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:global(.title)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 定义多个全局 */</span></span><br><span class="line"><span class="selector-pseudo">:global</span> &#123;</span><br><span class="line">  .link &#123;</span><br><span class="line">    <span class="selector-tag">color</span>: <span class="selector-tag">green</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="定制哈希类名"><a href="#定制哈希类名" class="headerlink" title="定制哈希类名"></a>定制哈希类名</h2><blockquote>
+<p><code>css-loader</code>默认的哈希算法是<code>[hash:base64]</code>，这会将<code>.title</code>编译成<code>._3zyde4l1yATCOkgn-DBWEL</code>这样的字符串。webpack.config.js可以定制哈希字符串格式</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      loader: <span class="string">&quot;style-loader!css-loader?modules&amp;localIdentName=[path][name]---[local]---[hash:base64:5]&quot;</span> <span class="comment">// 表示取路径以及文件名称以及本来class的名称以及哈希的前五位，中间连接符可以随便起</span></span><br><span class="line">    &#125;,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="class的组合"><a href="#class的组合" class="headerlink" title="class的组合"></a>class的组合</h2><blockquote>
+<p>在 CSS Modules 中，一个选择器可以继承另一个选择器的规则，这称为”组合”（<a target="_blank" rel="noopener" href="https://github.com/css-modules/css-modules#composition">“composition”</a>）。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 示例 */</span></span><br><span class="line"><span class="selector-class">.className</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">  <span class="attribute">composes</span>: className;</span><br><span class="line">  <span class="attribute">composes</span>: className;	<span class="comment">/* 可以写多个组合 */</span></span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果class与继承的class样式有重复的 会直接选用继承class的样式，因为组件编译下来直接是两个class 所以选后一个class的样式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">data-reactroot</span>=<span class="string">&quot;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;_2DHwuiHWMnKTOYG45T0x34 _10B-buq6_BEOTOl9urIjf8&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">类名分别是 &quot;_2DHwuiHWMnKTOYG45T0x34&quot; &quot;_10B-buq6_BEOTOl9urIjf8&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入其他模块"><a href="#输入其他模块" class="headerlink" title="输入其他模块"></a>输入其他模块</h2><blockquote>
+<p>选择器也可以继承其他css文件里的规则</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* a.css */</span></span><br><span class="line"><span class="selector-class">.className</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* b.css */</span></span><br><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">composes</span>: className from <span class="string">&#x27;./a.css&#x27;</span>,</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入变量"><a href="#输入变量" class="headerlink" title="输入变量"></a>输入变量</h2><blockquote>
+<p>CSS Modules 支持使用变量，不过需要安装 PostCSS 和 <a target="_blank" rel="noopener" href="https://github.com/css-modules/postcss-modules-values">postcss-modules-values</a>。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save postcss-loader postcss-modules-values</span><br></pre></td></tr></table></figure>
+
+<p>把<code>postcss-loader</code>加入<a target="_blank" rel="noopener" href="https://github.com/ruanyf/css-modules-demos/blob/master/demo06/webpack.config.js"><code>webpack.config.js</code></a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">	loader: <span class="string">&quot;style-loader!css-loader?modules!postcss-loader&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h2 id="react-creact-app使用css-module的方法"><a href="#react-creact-app使用css-module的方法" class="headerlink" title="react-creact-app使用css-module的方法"></a>react-creact-app使用css-module的方法</h2><ul>
+<li><p>第一种</p>
+<ul>
+<li><p>新建css文件使加入 [name].module.css的命名规则，引入方式也有区别</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&#x27;./Button.module.css&#x27;</span>; <span class="comment">// 使用 CSS Modules 的方式引入</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./another-stylesheet.css&#x27;</span>; <span class="comment">// 普通引入</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>第二种</p>
+<ul>
+<li><p>打开react-creact-app的隐藏配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn eject</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在use属性执行的方法中添加 <code>modules:true</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      test: cssRegex,</span><br><span class="line">      exclude: cssModuleRegex,</span><br><span class="line">      use: getStyleLoaders(&#123;</span><br><span class="line">        importLoaders: <span class="number">1</span>,</span><br><span class="line">        <span class="built_in">module</span>: <span class="literal">true</span>, <span class="comment">// css-module模式开启</span></span><br><span class="line">        sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,</span><br><span class="line">      &#125;),</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>然后文件名称后面就不用加module了 直接 就可以按照cssmodule的方式使用就好</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/04/29/CSS-Modules%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="ckhw4m2p80000b7vv23eb4qzm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -150,6 +1117,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/sevenFlow.github.io/page/2/">2</a><a class="extend next" rel="next" href="/sevenFlow.github.io/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -167,7 +1139,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/11/">November 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/04/">April 2020</a></li></ul>
     </div>
   </div>
 
@@ -180,11 +1152,23 @@
       <ul>
         
           <li>
-            <a href="/sevenFlow.github.io/2020/11/22/test-my-site/">test_my_site</a>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/">(no title)</a>
           </li>
         
           <li>
-            <a href="/sevenFlow.github.io/2020/11/22/hello-world/">Hello World</a>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/">(no title)</a>
           </li>
         
       </ul>
@@ -199,7 +1183,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
+      &copy; 2020 sevenFlow<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

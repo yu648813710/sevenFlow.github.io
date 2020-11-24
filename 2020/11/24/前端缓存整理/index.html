@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="web缓存整理  什么是缓存 浏览器缓存 本地缓存 webstore localstore sessionstore   Cookie websql indexDB 应用换成Application cache PWA   默认缓存 往返缓存BFCache     http 缓存 代理服务器缓存 CDN 缓存   网关缓存 DNS缓存     什么是缓存 Web缓存游走于服务器和客户端之间。这个服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://yu648813710.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="web缓存整理  什么是缓存 浏览器缓存 本地缓存 webstore localstore sessionstore   Cookie websql indexDB 应用换成Application cache PWA   默认缓存 往返缓存BFCache     http 缓存 代理服务器缓存 CDN 缓存   网关缓存 DNS缓存     什么是缓存 Web缓存游走于服务器和客户端之间。这个服务">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-11-24T15:17:21.835Z">
+<meta property="article:modified_time" content="2020-11-24T15:17:21.835Z">
+<meta property="article:author" content="sevenFlow">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/sevenFlow.github.io/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/sevenFlow.github.io/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sevenFlow.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yu648813710.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-前端缓存整理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.835Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="web缓存整理"><a href="#web缓存整理" class="headerlink" title="web缓存整理"></a>web缓存整理</h2><hr>
+<ul>
+<li>什么是缓存</li>
+<li>浏览器缓存<ul>
+<li>本地缓存<ul>
+<li>webstore<ul>
+<li>localstore</li>
+<li>sessionstore</li>
+</ul>
+</li>
+<li>Cookie</li>
+<li>websql</li>
+<li>indexDB</li>
+<li>应用换成Application cache</li>
+<li>PWA</li>
+</ul>
+</li>
+<li>默认缓存<ul>
+<li>往返缓存BFCache</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>http 缓存</li>
+<li>代理服务器缓存<ul>
+<li>CDN 缓存</li>
+</ul>
+</li>
+<li>网关缓存<ul>
+<li>DNS缓存</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="什么是缓存"><a href="#什么是缓存" class="headerlink" title="什么是缓存"></a>什么是缓存</h3><blockquote>
+<p>Web缓存游走于服务器和客户端之间。这个服务器可能是源服务器（资源所驻留的服务器Add），数量可能是1个或多个；这个客户端也可能是1个或多个。Web缓存就在服务器-客户端之间搞监控，监控请求，并且把请求输出的内容（例如html页面、 图片和文件）（统称为副本）另存一份；然后，如果下一个请求是相同的URL，则直接请求保存的副本，而不是再次麻烦源服务器。</p>
+</blockquote>
+<ul>
+<li><p>使用缓存的2个主要原因：</p>
+<ul>
+<li><p><strong>降低延迟：</strong> 缓存离客户端更近，因此，从缓存请求内容比从源服务器所用时间更少，呈现速度更快，网站就显得更灵敏。</p>
+</li>
+<li><p><strong>降低网络传输：</strong> 副本被重复使用，大大降低了用户的带宽使用，其实也是一种变相的省钱（如果流量要付费的话），同时保证了带宽请求在一个低水平上，更容易维护了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>PS：</strong> 经常会看到有人提到web的缓存机制，其实我更倾向于他们说这个问题的时候是指项目哪些地方需要用到缓存，缓存应该怎么去用，缓存对于整个项目而言充当的角色是，但是更多时候听到的是缓存都有什么，它们分别都有什么特性，这个应该是对缓存的了解</p>
+<hr>
+<h3 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h3><h4 id="1-本地缓存"><a href="#1-本地缓存" class="headerlink" title="1. 本地缓存"></a>1. 本地缓存</h4><h5 id="1-1-webstore"><a href="#1-1-webstore" class="headerlink" title="1.1 webstore"></a>1.1 webstore</h5><h6 id="1-1-1-localstore"><a href="#1-1-1-localstore" class="headerlink" title="1.1.1 localstore"></a>1.1.1 localstore</h6><blockquote>
+<p>在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。</p>
+</blockquote>
+<ul>
+<li>特性：<br>1：贮存大小5M，远远大于cookie的2K。<br>2：而且缓存时间没有限制，除非自己清除。<br>3：IE8 以下不兼容</li>
+<li>使用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> store=<span class="built_in">window</span>.localstore;<span class="comment">//获取</span></span><br><span class="line">store.setItem(key,val);<span class="comment">//设置缓存</span></span><br><span class="line">store.getItem(key);<span class="comment">//获取缓存</span></span><br><span class="line">storage.removeItem(key);<span class="comment">//删除某个缓存</span></span><br><span class="line">storage.clear();<span class="comment">//清楚全部</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="1-1-2-SessionStorage"><a href="#1-1-2-SessionStorage" class="headerlink" title="1.1.2 SessionStorage"></a>1.1.2 SessionStorage</h6><blockquote>
+<p>sessionStorage 是HTML5新增的一个会话存储对象，用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</p>
+</blockquote>
+<ul>
+<li>特性：<br>1：贮存大小5M，远远大于cookie的2K。<br>2：而且缓存时间没有限制，除非自己清除。<br>3：IE8 以下不兼容</li>
+</ul>
+<h4 id="1-2-cookie"><a href="#1-2-cookie" class="headerlink" title="1.2 cookie"></a>1.2 cookie</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/" data-id="ckhw4m2ps000ab7vv6f9n1ghu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 sevenFlow<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/sevenFlow.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/sevenFlow.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/fancybox/jquery.fancybox.css">
+
+  
+<script src="/sevenFlow.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/sevenFlow.github.io/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

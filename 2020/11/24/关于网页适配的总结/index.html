@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于网页适配的总结目录 基础知识     pc适配     大屏适配     移动端适配     参考文档   基础知识像素像素是屏幕的最小单位，所以平常说的像素不是px，而是指设备屏幕的最小单位 设备像素设备像素又称物理像素（physical pixel），设备能控制显示的最小单位（每个单位下有三个子像素（红黄蓝）这就是rgb色域），我们可以把这些像素看作成显示器上一个个的点，一般指的是分辨率。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://yu648813710.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于网页适配的总结目录 基础知识     pc适配     大屏适配     移动端适配     参考文档   基础知识像素像素是屏幕的最小单位，所以平常说的像素不是px，而是指设备屏幕的最小单位 设备像素设备像素又称物理像素（physical pixel），设备能控制显示的最小单位（每个单位下有三个子像素（红黄蓝）这就是rgb色域），我们可以把这些像素看作成显示器上一个个的点，一般指的是分辨率。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-11-24T15:17:21.833Z">
+<meta property="article:modified_time" content="2020-11-24T15:17:21.833Z">
+<meta property="article:author" content="sevenFlow">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/sevenFlow.github.io/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/sevenFlow.github.io/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/sevenFlow.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sevenFlow.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yu648813710.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-关于网页适配的总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2020-11-24T15:17:21.833Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于网页适配的总结"><a href="#关于网页适配的总结" class="headerlink" title="关于网页适配的总结"></a>关于网页适配的总结</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><p><a href="#intellectual">基础知识</a></p>
+</li>
+<li><p>   <a href="#pc">pc适配</a></p>
+</li>
+<li><p>   <a href="#bigScreen">大屏适配</a></p>
+</li>
+<li><p>   <a href="#modile">移动端适配</a></p>
+</li>
+<li><p>   <a href="#document">参考文档</a></p>
+</li>
+</ul>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a><span id='intellectual'>基础知识</span></h2><h4 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h4><p>像素是屏幕的最小单位，所以平常说的像素不是px，而是指设备屏幕的最小单位</p>
+<h4 id="设备像素"><a href="#设备像素" class="headerlink" title="设备像素"></a><strong>设备像素</strong></h4><p>设备像素又称物理像素（physical pixel），设备能控制显示的最小单位（每个单位下有三个子像素（红黄蓝）这就是rgb色域），我们可以把这些像素看作成显示器上一个个的点，一般指的是分辨率。</p>
+<blockquote>
+<p>​    之前没出现 Retina（视网膜） 技术之前（苹果公司提出），1px对应的就是一个物理像素，随之出现2倍屏，3倍屏指的是之前对应的1物理像素对应相应2倍甚至3倍，苹果公司已经解决了相应的1px渲染到 retina 设备的适配问题，开发人员需要解决的是图片适配的问题，200*200图片在正常屏幕下正常显示，但是在2倍或者3倍的屏幕下会被放大2，3倍，所以图片一般要做2到3倍的适配。</p>
+</blockquote>
+<h4 id="逻辑像素"><a href="#逻辑像素" class="headerlink" title="逻辑像素"></a>逻辑像素</h4><p>独立于设备的用于逻辑上衡量像素的单位。CSS 像素就是逻辑像素，CSS 像素是 Web 编程的概念。一般指px，<strong>它是图像显示的基本单元，既不是一个确定的物理量，也不是一个点或者小方块，而是一个抽象概念</strong>。所以在谈论像素时一定<strong>要清楚它的上下文</strong>！对于web的设备逻辑像素可用<code>screen.width</code>和<code>screen.height</code>去取。</p>
+<h4 id="设备像素比"><a href="#设备像素比" class="headerlink" title="设备像素比"></a>设备像素比</h4><p>设备分辨率 / 逻辑像素 = DPR（设备像素比）一般就是指的几倍屏，也可<code>window.devicePixelRatio</code>直接获取，是几倍屏就需要几倍的图片。</p>
+<h4 id="vw-vh（css3新增）-兼容性"><a href="#vw-vh（css3新增）-兼容性" class="headerlink" title="vw / vh（css3新增）(兼容性)"></a>vw / vh（css3新增）(兼容性)</h4><ul>
+<li>vw (设备的100%宽度)<ul>
+<li>1vw = 浏览器可视宽度 /100</li>
+</ul>
+</li>
+<li>vh(设备的100%高度)<ul>
+<li>1vh =浏览器可视高度 /100</li>
+</ul>
+</li>
+</ul>
+<h4 id="vmin-vmax（css3新增）-兼容性"><a href="#vmin-vmax（css3新增）-兼容性" class="headerlink" title="vmin/vmax（css3新增）(兼容性)"></a>vmin/vmax（css3新增）(兼容性)</h4><ul>
+<li>设备的高宽中哪一个小，哪个就是vmin，比如1920*1080，vmin代表的就是1080，所以1vmin就是 1080/100</li>
+<li>vmax与之相反</li>
+</ul>
+<h4 id="rem-em"><a href="#rem-em" class="headerlink" title="rem/em"></a>rem/em</h4><ul>
+<li>rem （css3新增）(兼容性)<ul>
+<li><strong>相对于HTML 根元素的 font-size的大小定义</strong></li>
+<li><strong>全局的rem大小是固定的</strong></li>
+<li>不设置的情况下 因为浏览器默认HTML的font-size是16px，所以1rem=16px</li>
+</ul>
+</li>
+<li>em<ul>
+<li> em的值并不是固定的</li>
+<li>em会继承父级元素的字体大小 </li>
+<li>如果父级元素未定义，那么1em=16px</li>
+</ul>
+</li>
+</ul>
+<h4 id="媒体查询（css3新增）-兼容性"><a href="#媒体查询（css3新增）-兼容性" class="headerlink" title="媒体查询（css3新增）(兼容性)"></a>媒体查询（css3新增）(兼容性)</h4><ul>
+<li>可以通过查询规则不同写入不同的css样式从而渲染</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries">逻辑操作符</a></li>
+</ul>
+<h4 id="meta信息"><a href="#meta信息" class="headerlink" title="meta信息"></a>meta信息</h4><ul>
+<li><p>元信息 用来告知浏览器的网页设置</p>
+</li>
+<li><p>viewport 的 meta</p>
+<ul>
+<li>  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">  
+</li>
+<li><pre><code class="tex">width：控制 viewport 的大小，可以指定的一个值，如 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。
+height：和 width 相对应，指定高度。
+initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。
+maximum-scale：允许用户缩放到的最大比例。
+minimum-scale：允许用户缩放到的最小比例。
+user-scalable：用户是否可以手动缩放
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">## &lt;span id&#x3D;&quot;pc&quot; &gt; PC适配 &lt;&#x2F;span&gt;</span><br><span class="line"></span><br><span class="line">#### [主流适配]( https:&#x2F;&#x2F;www.1688.com&#x2F; )</span><br><span class="line"></span><br><span class="line">* 1200px的主体宽度居中展示</span><br><span class="line">* 两侧用百分比展示</span><br><span class="line"></span><br><span class="line">#### [流式适配]( [https:&#x2F;&#x2F;xgfe.github.io&#x2F;2018&#x2F;01&#x2F;26&#x2F;zhoushiqi&#x2F;Web%E7%AB%AF%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88&#x2F;](https:&#x2F;&#x2F;xgfe.github.io&#x2F;2018&#x2F;01&#x2F;26&#x2F;zhoushiqi&#x2F;Web端屏幕适配方案&#x2F;) )</span><br><span class="line"></span><br><span class="line">&gt; 栅格栏布局</span><br><span class="line"></span><br><span class="line">- 设计师需要做栅格栏设计，页面均等为12份，然后所有的布局按照栅格栏的对齐线进行对齐</span><br><span class="line">- 当需要缩放时进行百分比缩放即可</span><br><span class="line">- 适合大量留白的页面，布局样式单一的页面 </span><br><span class="line"></span><br><span class="line">#### [响应式适配]( https:&#x2F;&#x2F;www.bootcss.com&#x2F; )</span><br><span class="line"></span><br><span class="line">&gt; 媒体查询</span><br><span class="line"></span><br><span class="line">- 示例 </span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;html</span><br><span class="line">    &lt;!-- link元素中的CSS媒体查询 --&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; media&#x3D;&quot;(max-width: 800px)&quot; href&#x3D;&quot;example.css&quot; &#x2F;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 样式表中的CSS媒体查询 --&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">    @media (max-width: 600px) &#123;</span><br><span class="line">      .facet_sidebar &#123;</span><br><span class="line">        display: none;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>提前写好相关的查询规则</p>
+<ul>
+<li>一般规则都是市面上的主流分辨率的宽度，</li>
+</ul>
+</li>
+</ul>
+<h2 id="大屏适配"><a href="#大屏适配" class="headerlink" title=" 大屏适配 "></a><span id="bigScreen" > 大屏适配 </span></h2><ul>
+<li>对接<ul>
+<li>大屏物理信息（大屏一般是led屏幕 ，有p系列的规则）<ul>
+<li>得知大屏的物理信息自己可计算出实际可达最高分辨率，比如 12m*4m 大小的p50 led屏 ，p50的是1平方米 400 * 400 个点，可算出实际分辨率为 12*400 / 4 *400 = 4800/1600</li>
+</ul>
+</li>
+<li><strong>大屏的分辨率（一定是甲方已知道的）</strong><ul>
+<li>需要告知设计，设计需要按照该分辨率作图</li>
+</ul>
+</li>
+<li>大屏的终端<ul>
+<li>只有终端支持最高的分辨率，大屏才可显示最高分辨率</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>选用方案<ul>
+<li>固定写法<ul>
+<li>直接把大小全部写死</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="移动端适配"><a href="#移动端适配" class="headerlink" title=" 移动端适配 "></a><span id="modile" > 移动端适配 </span></h2><h4 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h4><ul>
+<li>现在各大厂的小程序采用的都是 rpx代替px来进行布局，其实他就是rem ，所以咱们不需要操心适配的事情</li>
+</ul>
+<h4 id="H5移动端"><a href="#H5移动端" class="headerlink" title="H5移动端"></a>H5移动端</h4><ul>
+<li><p>流式布局</p>
+<ul>
+<li>简书，掘金（响应以及流式）</li>
+</ul>
+</li>
+<li><p><strong>rem 布局</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/amfe/lib-flexible">淘宝的 flexible </a></p>
+<ul>
+<li>利用不同分辨率下的 HTML 的font-size来控制 rem的大小，将屏幕分为10等份</li>
+</ul>
+</li>
+<li><p>网上所流传的 rem 计算公式</p>
+<ul>
+<li><p>不同分辨率，不同比例</p>
+</li>
+<li><pre><code class="js">resize(originSize) &#123;
+      let widths = document.documentElement.clientWidth
+        var scale = (widths / originSize) * 200 //在X轴下求出比例并放大100倍。
+      document.getElementsByTagName(&#39;html&#39;)[0].style.fontSize = scale + &#39;px&#39;
+    &#125;</code></pre>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title=" 参考文档 "></a><span id="document" > 参考文档 </span></h2><p><a href="%5Bhttps://xgfe.github.io/2018/01/26/zhoushiqi/Web%E7%AB%AF%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88/%5D(https://xgfe.github.io/2018/01/26/zhoushiqi/Web%E7%AB%AF%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88/)">Web 端屏幕适配方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5cd0f87d6fb9a0325031c7ae#heading-3">掌握web开发基础系列–物理像素、逻辑像素、css像素</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/libin-1/p/7148377.html">什么是物理像素、虚拟像素、逻辑像素、设备像素，什么又是 PPI, DPI, DPR 和 DIP</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5d21a9bd5188255360190e7e#heading-1">浅谈-web屏幕适配的解决方案</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yu648813710.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/" data-id="ckhw4m2pp0005b7vvfbdzcaib" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/sevenFlow.github.io/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%95%B4%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E9%80%82%E9%85%8D%E7%9A%84%E6%80%BB%E7%BB%93/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E5%85%B3%E4%BA%8E%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E8%A7%A3%E8%80%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/sevenFlow.github.io/2020/11/24/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 sevenFlow<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/sevenFlow.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/sevenFlow.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/sevenFlow.github.io/fancybox/jquery.fancybox.css">
+
+  
+<script src="/sevenFlow.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/sevenFlow.github.io/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
